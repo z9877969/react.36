@@ -1,14 +1,26 @@
 import PropTypes from "prop-types";
+import { useLocation, useNavigate } from "react-router-dom";
 
-const MainInfo = ({ title, options, openActivePage, activePage }) => {
+const MainInfo = ({ title, options, activePage }) => {
   //   const { title } = props;
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const openActivePage = () => {
+    const pattern = activePage === "balance" ? "/" : "/transaction/";
+    const pathName = pattern + activePage;
+    const newLocation = {
+      pathname: pathName,
+    };
+    navigate(newLocation, { state: { from: location, activePage } });
+  };
 
   return (
     <>
       <section>
         <h2>{title}</h2>
         <p>UAH</p>
-        <button onClick={(e) => openActivePage(activePage)} type="button">
+        <button onClick={openActivePage} type="button">
           Add
         </button>
         <ul>

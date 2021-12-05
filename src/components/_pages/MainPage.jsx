@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import MainInfo from "../MainInfo/MainInfo";
+import { useLocation } from "react-router-dom";
 import StatisticsBtns from "../StatisticsBtns/StatisticsBtns";
 import {
   costsInfoOptions,
@@ -8,6 +9,8 @@ import {
 } from "../../assets/options/mainInfoOptions.json";
 
 const MainPage = ({ openActivePage }) => {
+  const location = useLocation();
+  console.log(location);
   return (
     <>
       <h1>Журнал расходов</h1>

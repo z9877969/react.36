@@ -1,7 +1,12 @@
 import PropTypes from "prop-types";
+import { useNavigate, useLocation } from "react-router-dom";
 
-const GoBackHeader = ({ handleGoBack, title }) => {
-    const cbOnClick = (e) => handleGoBack()
+const GoBackHeader = ({ title }) => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const cbOnClick = () => {
+    navigate(location.state?.from || "/");
+  };
   return (
     <header>
       <button onClick={cbOnClick} type="button">
