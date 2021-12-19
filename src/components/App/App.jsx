@@ -3,6 +3,7 @@ import MainPage from "../_pages/MainPage";
 import TransactionPage from "../_pages/TransactionPage";
 import "./App.css";
 import GoBackHeader from "../_shared/GoBackHeader/GoBackHeader";
+import BalancePage from "../_pages/BalancePage";
 
 export default function App() {
   return (
@@ -14,15 +15,7 @@ export default function App() {
           <TransactionPage closeActivePage={() => {}} transType={"costs"} />
         }
       />
-      <Route
-        path="/balance"
-        element={
-          <>
-            <GoBackHeader />
-            <h1>Balance</h1>
-          </>
-        }
-      />
+      <Route path="/balance" element={<BalancePage />} />
     </Routes>
   );
 }

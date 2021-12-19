@@ -6,14 +6,18 @@ const LabelInput = ({
   type = "text",
   placeholder = null,
   name,
+  onChange,
+  value,
 }) => (
   <label>
     {title && <p>{title}</p>}
     <input
+      onChange={onChange}
       type={type}
       name={name}
       onClick={cbOnClick}
       placeholder={placeholder}
+      value={value}
     />
   </label>
 );
