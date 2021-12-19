@@ -1,0 +1,16 @@
+.btn {
+  border: none;
+  font-size: 24px;
+  padding: 10px 15px;
+  background-color: lightseagreen;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn:active {
+  transform: scale(0.9);
+}
+
+.btn + .btn {
+  margin-left: 10px;
+}
