@@ -11,7 +11,10 @@ import { useDispatch } from "react-redux";
 import LabelInput from "../_shared/LabelInput/LabelInput";
 import GoBackHeader from "../_shared/GoBackHeader/GoBackHeader";
 import { useState } from "react";
-import { addTransaction } from "../../redux/transactions/transaction-actions";
+import {
+  addCosts,
+  addIncomes,
+} from "../../redux/transactions/transaction-actions";
 
 const TransactionPage = ({ closeActivePage }) => {
   const dispatch = useDispatch();
@@ -39,7 +42,12 @@ const TransactionPage = ({ closeActivePage }) => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(addTransaction(form));
+    if (transType === "costs") {
+      dispatch(addCosts(form));
+    }
+    if (transType === "incomes") {
+      dispatch(addIncomes(form));
+    }
   };
   return (
     <>

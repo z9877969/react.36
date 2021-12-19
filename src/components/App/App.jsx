@@ -8,13 +8,8 @@ import BalancePage from "../_pages/BalancePage";
 export default function App() {
   return (
     <Routes>
-      <Route path="/" element={<MainPage openActivePage={() => {}} />} />
-      <Route
-        path="/transaction/:transType/*"
-        element={
-          <TransactionPage closeActivePage={() => {}} transType={"costs"} />
-        }
-      />
+      <Route path="/" element={<MainPage />} />
+      <Route path="/transaction/:transType/*" element={<TransactionPage />} />
       <Route path="/balance" element={<BalancePage />} />
     </Routes>
   );

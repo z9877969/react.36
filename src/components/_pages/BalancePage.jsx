@@ -2,7 +2,9 @@ import { useSelector } from "react-redux";
 import GoBackHeader from "../_shared/GoBackHeader/GoBackHeader";
 
 export default function BalancePage() {
-  const transactions = useSelector((state) => state.transactions);
+  const costs = useSelector((state) => state.transactions.costs);
+  const incomes = useSelector((state) => state.transactions.incomes);
+  const transactions = [...costs, ...incomes];
   return (
     <>
       <GoBackHeader />
