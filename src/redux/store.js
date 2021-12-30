@@ -1,16 +1,10 @@
-// import { createStore, combineReducers } from "redux";
-// import { composeWithDevTools } from "redux-devtools-extension";
 import transactionsReducer from "./transactions/transactions-reducer";
-// const rootReducer = combineReducers({
-//   transactions: transactionsReducer,
-// });
-// const store = createStore(rootReducer, composeWithDevTools());
-// export default store;
+import authReducer from "./auth/auth-slice";
 
 import { configureStore } from "@reduxjs/toolkit";
 
 const store = configureStore({
-  reducer: { transactions: transactionsReducer },
+  reducer: { auth: authReducer, transactions: transactionsReducer },
 });
 
 export default store;

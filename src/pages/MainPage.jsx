@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import { useLocation } from "react-router-dom";
 import MainInfo from "../components/MainInfo/MainInfo";
 import StatisticsBtns from "../components/StatisticsBtns/StatisticsBtns";
-import {Container} from '../components/_styled/wrappers.styled';
+import { Container } from "../components/_styled/wrappers.styled";
 import {
   costsInfoOptions,
   incomesInfoOptions,
@@ -39,7 +39,7 @@ const MainPage = ({ openActivePage }) => {
 };
 
 MainPage.propTypes = {
-  openActivePage: PropTypes.func.isRequired,
+  openActivePage: PropTypes.func,
 };
 
 export default MainPage;
