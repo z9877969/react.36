@@ -1,20 +1,20 @@
 import PropTypes from "prop-types";
-import MainInfo from "../MainInfo/MainInfo";
 import { useLocation } from "react-router-dom";
-import StatisticsBtns from "../StatisticsBtns/StatisticsBtns";
+import MainInfo from "../components/MainInfo/MainInfo";
+import StatisticsBtns from "../components/StatisticsBtns/StatisticsBtns";
+import {Container} from '../components/_styled/wrappers.styled';
 import {
   costsInfoOptions,
   incomesInfoOptions,
   balanceInfoOptions,
-} from "../../assets/options/mainInfoOptions.json";
+} from "../assets/options/mainInfoOptions.json";
 
 const MainPage = ({ openActivePage }) => {
   const location = useLocation();
-  console.log(location);
+
   return (
-    <>
+    <Container>
       <h1>Журнал расходов</h1>
-      {/* {MainInfo({ title: "JS", a: [], b: 321, c: { a: 654 } })} */}
       <MainInfo
         openActivePage={openActivePage}
         options={costsInfoOptions}
@@ -34,7 +34,7 @@ const MainPage = ({ openActivePage }) => {
         activePage="balance"
       />
       <StatisticsBtns />
-    </>
+    </Container>
   );
 };
 
@@ -43,5 +43,3 @@ MainPage.propTypes = {
 };
 
 export default MainPage;
-
-// React.createElement()

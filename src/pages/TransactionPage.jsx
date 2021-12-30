@@ -1,3 +1,4 @@
+import { useState } from "react";
 import PropTypes from "prop-types";
 import {
   useMatch,
@@ -8,15 +9,15 @@ import {
   useNavigate,
 } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import LabelInput from "../_shared/LabelInput/LabelInput";
-import GoBackHeader from "../_shared/GoBackHeader/GoBackHeader";
-import { useState } from "react";
+import LabelInput from "../components/_shared/LabelInput/LabelInput";
+import GoBackHeader from "../components/_shared/GoBackHeader/GoBackHeader";
+import { Container } from "../components/_styled/wrappers.styled";
 import {
   addCosts,
   addIncomes,
-} from "../../redux/transactions/transaction-actions";
+} from "../redux/transactions/transaction-actions";
 
-const TransactionPage = ({ closeActivePage }) => {
+const TransactionPage = () => {
   const dispatch = useDispatch();
   const { transType, "*": titleDefiner } = useParams();
   const title = transType === "incomes" ? "Доходы" : "Расходы"; // incpmes || costs
@@ -29,7 +30,7 @@ const TransactionPage = ({ closeActivePage }) => {
   const [form, setForm] = useState({
     day: "",
     time: "",
-    category: "",
+    category: transType === "incomes" ? "Доходы" : "Расходы",
     sum: "",
     currency: "",
     comment: "",
@@ -50,7 +51,7 @@ const TransactionPage = ({ closeActivePage }) => {
     }
   };
   return (
-    <>
+    <Container>
       <GoBackHeader title={titleDefiner === "" ? title : "Category"} />
       <main>
         <section>
@@ -110,7 +111,7 @@ const TransactionPage = ({ closeActivePage }) => {
           </Routes>
         </section>
       </main>
-    </>
+    </Container>
   );
 };
 
